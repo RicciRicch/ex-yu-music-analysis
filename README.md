@@ -16,9 +16,9 @@ tekstovima EX YU popularne muzike kroz tri istorijska perioda:
 koristeći kombinaciju klasičnih NLP metoda (tematsko modelovanje, sentiment
 analiza, NER) i LLM analize (Claude API) za dublju interpretaciju sadržaja.
 
-> **Status**: Faza 1 (priprema projekta) gotova. Faza 2 (prikupljanje
-> korpusa) suštinski gotova — 4113 pesama, 104 izvođača, tri perioda,
-> 8 žanrova. Vidi "Poznata ograničenja" ispod za otvorena pitanja.
+> **Status**: Faza 1, 2 i 3 gotove. Korpus: 4113 pesama prikupljeno,
+> 4084 spremno za analizu posle preprocessing filtriranja (104 izvođača,
+> 3 perioda, 8 žanrova). Sledeće: Faza 4 (NLP analiza).
 
 ## Struktura projekta
 
@@ -71,3 +71,7 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   skladu sa metodologijom iz elaborata (4.6).
 - Nekoliko poznatih SFRJ rok/novi-talas izvođača takođe nije na glavnom izvoru
   (Riblja Čorba, Šarlo Akrobata, Film, Bajaga i Instruktori i dr.) - isti uzrok.
+- Otkriveno ~29 pesama na stranom jeziku (engleski, nemački) - verzije
+  pesama snimane za strano tržište (npr. Zdravko Čolić, Dragana Mirković).
+  Automatski izbačene iz analize-spremnog korpusa (manje od 10 lema posle
+  lematizacije = pouzdan signal da nije ex-yu jezik).
