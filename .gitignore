@@ -1,0 +1,27 @@
+# --- Podaci (autorska prava - sirovi tekstovi NE idu na GitHub) ---
+data/raw/*
+data/processed/*
+data/gold_standard/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/gold_standard/.gitkeep
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Tajni ključevi ---
+.env
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
