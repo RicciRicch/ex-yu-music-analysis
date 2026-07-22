@@ -16,9 +16,10 @@ tekstovima EX YU popularne muzike kroz tri istorijska perioda:
 koristeći kombinaciju klasičnih NLP metoda (tematsko modelovanje, sentiment
 analiza, NER) i LLM analize (Claude API) za dublju interpretaciju sadržaja.
 
-> **Status**: Faza 1, 2 i 3 gotove. Korpus: 4113 pesama prikupljeno,
-> 4084 spremno za analizu posle preprocessing filtriranja (104 izvođača,
-> 3 perioda, 8 žanrova). Sledeće: Faza 4 (NLP analiza).
+> **Status**: Faza 1, 2 i 3 gotove. Faza 4 (NLP analiza) gotova - TF-IDF,
+> leksička raznovrsnost, sentiment (leksikonski), LDA i BERTopic tematsko
+> modelovanje, K-means klasterizacija. NER isključen zbog nekompatibilnosti
+> verzija (vidi "Poznata ograničenja"). Sledeće: Faza 5 (LLM analiza).
 
 ## Struktura projekta
 
@@ -75,3 +76,10 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   pesama snimane za strano tržište (npr. Zdravko Čolić, Dragana Mirković).
   Automatski izbačene iz analize-spremnog korpusa (manje od 10 lema posle
   lematizacije = pouzdan signal da nije ex-yu jezik).
+- NER (imenovani entiteti) daje nepouzdane, isprekidane rezultate zbog
+  neusklađenosti verzija - classla biblioteka je testirana sa torch 1.12.0,
+  a dostupna verzija za Python 3.13 je torch 2.6.0+ (raskorak od ~3 godine
+  razvoja). Kod za ekstrakciju entiteta je napisan i funkcionalan
+  (src/nlp/run_ner.py), ali izlazni rezultati nisu pouzdani za analizu -
+  NER je isključen iz finalnih nalaza rada. Downgrade torch-a nije moguć
+  na Python 3.13 (nema kompatibilnih paketa ispod verzije 2.6.0).
