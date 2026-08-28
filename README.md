@@ -32,6 +32,9 @@ ex-yu-music-analysis/
 │   ├── raw/                # sirovo prikupljeni tekstovi (NIJE na GitHub-u)
 │   ├── processed/          # očišćen dataset (NIJE na GitHub-u)
 │   └── gold_standard/      # ručno anotiran uzorak za validaciju
+├── docs/
+│   ├── napredak_projekta.md    # detaljan pregled napretka kroz sve faze
+│   └── obrasci_neslaganja.md   # analiza obrazaca LLM/gold standard neslaganja
 ├── src/
 │   ├── scraping/           # prikupljanje tekstova sa lyrics sajtova
 │   ├── preprocessing/      # čišćenje, normalizacija, lematizacija
@@ -84,10 +87,10 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   (src/nlp/run_ner.py), ali izlazni rezultati nisu pouzdani za analizu -
   NER je isključen iz finalnih nalaza rada. Downgrade torch-a nije moguć
   na Python 3.13 (nema kompatibilnih paketa ispod verzije 2.6.0).
-  - Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
-  dokumentovanog (~20 zahteva/dan umesto ~1.500, promena krajem 2025) -
-  napravljen prelazak na Anthropic Claude API (plaćen, ali jeftin za ovaj
-  obim, ~$0.50).
+- Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
+dokumentovanog (~20 zahteva/dan umesto ~1.500, promena krajem 2025) -
+napravljen prelazak na Anthropic Claude API (plaćen, ali jeftin za ovaj
+obim, ~$0.50).
 - LLM klasifikacija (tema/emocija/vrednosti) sprovedena na gold standard
   uzorku (n=299), ne celom korpusu (n=4084) - metodološka odluka: isti
   uzorak služi i za validaciju, izbegava se nepotreban trošak/vreme na
