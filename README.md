@@ -1,6 +1,6 @@
 # EX YU Music Analysis
 
-Tehnička realizacija AI/NLP dela master rada:
+Tehnička realizacija AI/NLP dela master rada za Veštačku inteligenciju:
 **"Analiza podataka u promeni trendova u EX YU muzici pomoću LLM modela"**
 (Univerzitet u Beogradu, Fakultet organizacionih nauka)
 
@@ -62,7 +62,7 @@ cp .env.example .env          # pa upiši svoj ANTHROPIC_API_KEY
 Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
 (izvođač/godina/žanr) i agregovani rezultati analize, nikad sam tekst pesme.
 
-## Poznata ograničenja (stanje: Faza 2)
+## Poznata ograničenja (stanje: Faza 5)
 
 - **Trep žanr je slabo zastupljen** (8 pesama od 4113 u korpusu). Glavni izvor
   (tekstovi-pjesama.com) gotovo da nema trep izvođače (Coby, Voyage, Jala Brat,
@@ -84,7 +84,7 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   (src/nlp/run_ner.py), ali izlazni rezultati nisu pouzdani za analizu -
   NER je isključen iz finalnih nalaza rada. Downgrade torch-a nije moguć
   na Python 3.13 (nema kompatibilnih paketa ispod verzije 2.6.0).
-- Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
+  - Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
   dokumentovanog (~20 zahteva/dan umesto ~1.500, promena krajem 2025) -
   napravljen prelazak na Anthropic Claude API (plaćen, ali jeftin za ovaj
   obim, ~$0.50).
