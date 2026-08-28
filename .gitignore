@@ -2,6 +2,7 @@
 data/raw/*
 data/processed/*
 data/gold_standard/*
+results/reports/interesting_disagreements.csv
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/gold_standard/.gitkeep

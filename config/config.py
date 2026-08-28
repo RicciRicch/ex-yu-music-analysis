@@ -123,10 +123,10 @@ DATASET_COLUMNS = [
 ]
 
 # ---------------------------------------------------------------------------
-# LLM podešavanja (Anthropic Claude API)
+# LLM podešavanja (Claude Anthropic)
 # ---------------------------------------------------------------------------
 LLM_PROVIDER = "anthropic"
-LLM_MODEL = "claude-sonnet-4-6"   # brz i jeftin za analizu velikog broja pesama
+LLM_MODEL = "claude-haiku-4-5-20251001"  # brz i jeftin za analizu velikog broja pesama
 LLM_MAX_TOKENS = 1024
 LLM_TEMPERATURE = 0.0             # determinističke klasifikacije, ne kreativno pisanje
 

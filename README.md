@@ -16,10 +16,11 @@ tekstovima EX YU popularne muzike kroz tri istorijska perioda:
 koristeći kombinaciju klasičnih NLP metoda (tematsko modelovanje, sentiment
 analiza, NER) i LLM analize (Claude API) za dublju interpretaciju sadržaja.
 
-> **Status**: Faza 1, 2 i 3 gotove. Faza 4 (NLP analiza) gotova - TF-IDF,
-> leksička raznovrsnost, sentiment (leksikonski), LDA i BERTopic tematsko
-> modelovanje, K-means klasterizacija. NER isključen zbog nekompatibilnosti
-> verzija (vidi "Poznata ograničenja"). Sledeće: Faza 5 (LLM analiza).
+> **Status**: Faza 1-5 gotove. LLM analiza (Claude Haiku 4.5) sprovedena
+> na gold standard uzorku (n=299) - Cohen's kappa: tema=0.405,
+> emocija=0.356 (slabo-umereno slaganje). Detaljni obrasci neslaganja
+> dokumentovani u `docs/obrasci_neslaganja.md`. Sledeće: Faza 6
+> (vizualizacije).
 
 ## Struktura projekta
 
@@ -83,3 +84,15 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   (src/nlp/run_ner.py), ali izlazni rezultati nisu pouzdani za analizu -
   NER je isključen iz finalnih nalaza rada. Downgrade torch-a nije moguć
   na Python 3.13 (nema kompatibilnih paketa ispod verzije 2.6.0).
+- Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
+  dokumentovanog (~20 zahteva/dan umesto ~1.500, promena krajem 2025) -
+  napravljen prelazak na Anthropic Claude API (plaćen, ali jeftin za ovaj
+  obim, ~$0.50).
+- LLM klasifikacija (tema/emocija/vrednosti) sprovedena na gold standard
+  uzorku (n=299), ne celom korpusu (n=4084) - metodološka odluka: isti
+  uzorak služi i za validaciju, izbegava se nepotreban trošak/vreme na
+  celom korpusu bez merljive dobiti u pouzdanosti nalaza.
+- LLM klasifikacija pokazuje sistematsku pristrasnost ka dominantnim
+  kategorijama i slabije prepoznaje žanrovski/kulturno specifične
+  nijanse (satira, narodnjačka konvencija izražavanja, hedonizam vs.
+  ljubav) - detaljno dokumentovano u `docs/obrasci_neslaganja.md`.
