@@ -32,6 +32,9 @@ ex-yu-music-analysis/
 │   ├── raw/                # sirovo prikupljeni tekstovi (NIJE na GitHub-u)
 │   ├── processed/          # očišćen dataset (NIJE na GitHub-u)
 │   └── gold_standard/      # ručno anotiran uzorak za validaciju
+├── docs/
+│   ├── napredak_projekta.md    # detaljan pregled napretka kroz sve faze
+│   └── obrasci_neslaganja.md   # analiza obrazaca LLM/gold standard neslaganja
 ├── src/
 │   ├── scraping/           # prikupljanje tekstova sa lyrics sajtova
 │   ├── preprocessing/      # čišćenje, normalizacija, lematizacija
