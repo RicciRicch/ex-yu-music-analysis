@@ -16,11 +16,13 @@ tekstovima EX YU popularne muzike kroz tri istorijska perioda:
 koristeći kombinaciju klasičnih NLP metoda (tematsko modelovanje, sentiment
 analiza, NER) i LLM analize (Claude API) za dublju interpretaciju sadržaja.
 
-> **Status**: Faza 1-5 gotove. LLM analiza (Claude Haiku 4.5) sprovedena
-> na gold standard uzorku (n=299) - Cohen's kappa: tema=0.405,
-> emocija=0.356 (slabo-umereno slaganje). Detaljni obrasci neslaganja
-> dokumentovani u `docs/obrasci_neslaganja.md`. Sledeće: Faza 6
-> (vizualizacije).
+> **Status**: Faze 1-6 gotove - ceo pipeline kompletan. Prikupljanje
+> (4113 pesama) → preprocessing (4084 spremno) → NLP analiza (TF-IDF,
+> LDA, BERTopic, sentiment, leksička raznovrsnost) → LLM validacija
+> (gold standard n=299, Cohen's kappa: tema=0.405, emocija=0.356) →
+> vizualizacije (word cloud-ovi, grafovi trendova, heatmap-e, dekadni
+> prikazi). Interaktivan pregled svih nalaza:
+> `notebooks/finalni_pregled.ipynb`. Detaljna dokumentacija u `docs/`.
 
 ## Struktura projekta
 
@@ -43,6 +45,7 @@ ex-yu-music-analysis/
 │   ├── visualization/      # grafikoni, word cloud-ovi
 │   └── utils/              # zajedničke pomoćne funkcije (schema, itd.)
 ├── notebooks/               # Jupyter notebook-ovi sa analizom
+│   └── finalni_pregled.ipynb   # interaktivan pregled svih nalaza za odbranu
 ├── results/
 │   ├── figures/             # generisani grafikoni
 │   └── reports/             # tabele/izveštaji sa rezultatima
@@ -99,3 +102,9 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   kategorijama i slabije prepoznaje žanrovski/kulturno specifične
   nijanse (satira, narodnjačka konvencija izražavanja, hedonizam vs.
   ljubav) - detaljno dokumentovano u `docs/obrasci_neslaganja.md`.
+- Analiza po DEKADAMA treba se tumačiti sa oprezom - decade kolona je
+  izvedena iz jedne procenjene godine po izvođaču, ne stvarne godine
+  svake pesme, pa pojedine dekade (posebno 2000s, n=271) imaju
+  neujednačen žanrovski sastav koji može izgledati kao "trend" a
+  zapravo je posledica uzorkovanja (videti napomenu na
+  results/figures/mattr_by_decade.png).

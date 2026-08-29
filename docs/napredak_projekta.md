@@ -67,10 +67,35 @@ Pet zasebnih analiza, svaka testirana na malom uzorku pre punog korpusa:
 
 **Paralelno, nezavisno:** ti i koleginica treba da popunite `gold_theme`/`gold_emotion`/`gold_values` kolone u `gold_standard_sample.csv` ručno — ovaj korak je potpuno odvojen od LLM koda (različiti fajlovi, redosled nije bitan), spajanje i poređenje dolazi tek kad oba budu gotova.
 
-## Šta ostaje
+## Faza 6 — Vizualizacije
 
-1. Dodavanje kredita na Anthropic nalog → pun LLM run na 299 pesama
-2. Ručna anotacija gold standarda (ti + koleginica)
-3. Spajanje LLM + ljudskih anotacija po `song_id`, Cohen's kappa validacija
-4. Faza 6 (iz tvog originalnog plana) — vizualizacije: grafovi trendova, word cloud-ovi, komparativni prikazi kroz dekade
-5. Finalno ažuriranje README-a, poslednji commit
+**Word cloud-ovi** (`src/visualization/wordclouds.py`) — po periodu (3)
+i po žanru (8), veličina reči prati TF-IDF skor (ne prostu frekvenciju),
+pa vizuelno ističe karakteristične, ne samo najčešće reči. Manji poznat
+kozmetički kviz: slovo "l" iz reči "ljubav" ume vizuelno da se odvoji
+usled rotacije u layout algoritmu (`prefer_horizontal=1.0` to ublažava)
+— bezopasan, poznat fenomen biblioteke, ne greška u podacima.
+
+**Grafovi trendova** (`src/visualization/charts.py`) — sentiment po
+periodu (stacked bar), TTR vs. MATTR po periodu (namerno prikazuje oba,
+da se vidi kontradikcija otkrivena u Fazi 4), heatmap zastupljenosti LDA
+tema po periodu/žanru, i grupisan bar grafikon poređenja gold standard
+vs. LLM raspodele tema.
+
+**Dekadni prikaz** (`src/visualization/run_decade_analysis.py`) — finiji
+prikaz od tri glavna perioda, po dekadama (1970s–2010s). Najjači nalaz:
+`genre_by_decade.png` vizuelno potvrđuje istorijski poznatu smenu
+žanrova (novi talas isključivo 80-e, turbo-folk eksplodira 90-e,
+hip-hop/trep tek 2010-e) — direktna kvantitativna potvrda teorijskog
+okvira iz literature (Gordy 1999, Kronja 2001). Otkriven i dokumentovan
+problem: 2000s dekada (n=271) je u uzorku skoro isključivo pop žanr
+(posledica toga što je `approx_year` procenjena po izvođaču, ne po
+pesmi), zbog čega naizgled "nagli skok" MATTR-a te dekade odražava
+žanrovski sastav uzorka, ne stvaran trend — napomena o ovome je ugrađena
+direktno u sliku (`mattr_by_decade.png`), ne samo u tekstu.
+
+**Interaktivni pregled** (`notebooks/finalni_pregled.ipynb`) — spaja sve
+generisane izveštaje i slike u jedan notebook organizovan po fazama, sa
+uvodnim objašnjenjem i tumačenjem posle svakog nalaza. Cohen's kappa se
+u notebook-u računa uživo iz sirovih podataka (ne čita iz fajla) —
+transparentno, proverljivo tokom odbrane.
