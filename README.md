@@ -1,5 +1,7 @@
 # EX YU Music Analysis
 
+*[English version: [README.en.md](README.en.md)]*
+
 Tehnička realizacija AI/NLP dela master rada za Veštačku inteligenciju:
 **"Analiza podataka u promeni trendova u EX YU muzici pomoću LLM modela"**
 (Univerzitet u Beogradu, Fakultet organizacionih nauka)
