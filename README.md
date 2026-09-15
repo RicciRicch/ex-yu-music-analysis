@@ -90,7 +90,7 @@ Tekstovi pesama su autorski zaštićeni. Na GitHub ide kod, metapodaci
   (src/nlp/run_ner.py), ali izlazni rezultati nisu pouzdani za analizu -
   NER je isključen iz finalnih nalaza rada. Downgrade torch-a nije moguć
   na Python 3.13 (nema kompatibilnih paketa ispod verzije 2.6.0).
-  - Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
+- Google Gemini besplatan API nivo se pokazao znatno ograničeniji od
   dokumentovanog (~20 zahteva/dan umesto ~1.500, promena krajem 2025) -
   napravljen prelazak na Anthropic Claude API (plaćen, ali jeftin za ovaj
   obim, ~$0.50).
